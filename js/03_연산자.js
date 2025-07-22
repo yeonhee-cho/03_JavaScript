@@ -1,3 +1,4 @@
+/* + */
 function plusFn() {
   // 변수 선언
   // document(문서) : HTML 문서(파일) 내에서
@@ -28,8 +29,8 @@ function plusFn() {
     숫자만 작성된 문자열("123")을 진짜 숫자(123)으로 바꾸는 방법
     Number("123") -> 숫자 123으로 변경
   */
-  alert("두 수의 합 : " + number1 + number2); // 숫자로 변환되지 않음
-  alert("두 수의 합 : " + Number(number1) + Number(number2)); // 숫자로 변환되지 않음
+  // alert("두 수의 합 : " + number1 + number2); // 숫자로 변환되지 않음
+  // alert("두 수의 합 : " + Number(number1) + Number(number2)); // 숫자로 변환되지 않음
   alert(Number(number1) + Number(number2));
 
   /* 
@@ -44,7 +45,55 @@ function plusFn() {
   // 3번 result.innerText로 수의 합을 저장해서 사용자 화면에 보여주기
 
   // result 뒤에는 소비자가 작성한 계산 값이 아니라, 우리가 더해준 계산 결과가 들어가야하기 때문에 .value 를 붙여주지 않음
-  // 계산결과
+  // + 계산결과
   const result = document.getElementById("calcResult");
   result.innerText = Number(number1) + Number(number2);
+}
+
+/* - */
+function minusFn() {
+  const number1 = document.getElementById("input1").value;
+  const number2 = document.getElementById("input2").value;
+  console.log("number1의 값 : " + number1);
+  console.log("number2의 값 : " + number2);
+
+  //  - 계산결과
+  const result = document.getElementById("calcResult");
+  result.innerText = Number(number1) - Number(number2);
+}
+
+/* * */
+function multiFn() {
+  const number1 = document.getElementById("input1").value;
+  const number2 = document.getElementById("input2").value;
+  console.log("number1의 값 : " + number1);
+  console.log("number2의 값 : " + number2);
+
+  // * 계산결과
+  const result = document.getElementById("calcResult");
+  result.innerText = Number(number1) * Number(number2);
+}
+
+/* / */
+function divFn() {
+  const number1 = document.getElementById("input1").value;
+  const number2 = document.getElementById("input2").value;
+  console.log("number1의 값 : " + number1);
+  console.log("number2의 값 : " + number2);
+
+  // / 계산결과
+  const result = document.getElementById("calcResult");
+  result.innerText = Number(number1) / Number(number2);
+}
+
+/* % */
+function modFn() {
+  const number1 = document.getElementById("input1").value;
+  const number2 = document.getElementById("input2").value;
+  console.log("number1의 값 : " + number1);
+  console.log("number2의 값 : " + number2);
+
+  // % 계산결과
+  const result = document.getElementById("calcResult");
+  result.innerText = Number(number1) % Number(number2);
 }
