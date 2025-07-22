@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연산자</title>
+    <link rel="stylesheet" href="../css/03_연산자.css" />
+  </head>
+  <body>
+    <h1>연산자(Operator)</h1>
+    <h3>산술 연산자 + 계산 만들기</h3>
+    <pre>
++, -, *(곱하기), /(나누기:몫), %(modulo 또는 mod : 나머지 연산자)
+    </pre>
+    <!-- 계산기 -->
+    <div class="calculate">
+      <div class="row">
+        <label>
+          첫 번째 값:
+          <input type="number" id="input1" />
+        </label>
+        <label>
+          두 번째 값:
+          <input type="number" id="input2" />
+        </label>
+      </div>
+    </div>
+
+    <div class="row btn-row">
+      <!-- 버튼 클릭 시 plusFn() 함수 호출(실행) -->
+      <button type="button" onclick="plusFn()">+</button>
+    </div>
+    <div class="row">
+      <h2>결과 : <span id="calcResult">100</span></h2>
+    </div>
+
+    <script src="../js/03_연산자.js"></script>
+  </body>
+</html>
