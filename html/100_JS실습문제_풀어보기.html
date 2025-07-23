@@ -102,15 +102,20 @@
 
     <script>
       function 계산하기(연산자) {
-        const num1 = document.getElementById("숫자1");
-        const num2 = document.getElementById("숫자2");
+        const n1 = document.getElementById("숫자1");
+        const n2 = document.getElementById("숫자2");
         const culcResult = document.getElementById("계산결과");
-        if (연산자 === "+") {
-          culcResult = n1 + n2;
-        } else if (연산자 === "-") {
-          culcResult = n1 - n2;
-        } else if (연산자 === "*") {
-          culcResult = n1 * n2;
+
+        /*
+          == 타입 변환을 해서 확인
+          ===(java에서는 .equal로 표기)
+        */
+        if (연산자 == "+") {
+          culcResult.innerText = n1 + n2;
+        } else if (연산자 == "-") {
+          culcResult.innerText = n1 - n2;
+        } else if (연산자 == "*") {
+          culcResult.innerText = n1 * n2;
         }
       }
     </script>
