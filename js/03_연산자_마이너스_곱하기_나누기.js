@@ -31,6 +31,7 @@ const num1 = document.getElementById("input1");
 const num2 = document.getElementById("input2");
 const result = document.getElementById("calcResult"); // 계산결과
 
+/* 빼기 */
 function minusFn() {
   /* 
       value의 값은 반드시 function 기능 내부에서 가져오기를 작성해야함
@@ -40,4 +41,33 @@ function minusFn() {
   */
   // const value1 = document.getElementById("input1").value;
   const value1 = num1.value; // 위에서 value를 넣어주면 값이 안들어감
+  const value2 = num2.value;
+
+  // input은 기본으로 글자일 수 있기 때문에 글자를 숫자로 감싸는 형변환 작업 진행
+  // 왜 input type이 number인데 글자야? -> type="number"여도 .value는 **무조건 문자열(string)**을 반환
+  result.innerText = Number(value1) - Number(value2);
+}
+
+/* 곱하기 */
+function multiFn() {
+  const val1 = Number(num1.value);
+  const val2 = Number(num2.value);
+
+  result.innerText = val1 * val2;
+}
+
+/* 나누기 몫 */
+function divFn() {
+  result.innerText = Number(val1.value) / Number(val2.value);
+}
+
+/* 나누기 나머지 */
+function modFn() {
+  /*
+    나머지 연산(%)은 나누기 계산 시
+    몫이 정수인 부분까지만 계산하고 남은 나머지 값을 출력한다.
+  */
+  const val1 = Number(num1.value);
+  const val2 = Number(num2.value);
+  result.innerText = val1 % val2;
 }
