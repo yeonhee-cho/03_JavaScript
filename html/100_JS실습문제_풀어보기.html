@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습 문제 기초 1</title>
+  </head>
+  <body>
+    <h1>실습문제 기초 1</h1>
+    <h3>문제1: 기본 알림창 띄우기</h3>
+    <button type="button" onclick="첫번째함수()">클릭해보세요!</button>
+    <script>
+      function 첫번째함수() {
+        alert("안녕하세요!");
+      }
+    </script>
+
+    <h3>문제 2: 텍스트 변경하기</h3>
+    <button type="button" onclick="텍스트변경()">텍스트 바꾸기</button>
+    <div id="메시지영역">여기 텍스트가 바뀔 예정입니다.</div>
+    <script>
+      function 텍스트변경() {
+        const msg = document.getElementById("메시지영역");
+        msg.innerText = "새로운 메시지!";
+      }
+    </script>
+
+    <h3>문제3: 배경색 변경하기</h3>
+    <button type="button" onclick="배경색변경('pink')">분홍색</button>
+    <button type="button" onclick="배경색변경('lightgreen')">연두색</button>
+    <button type="button" onclick="배경색변경('lightyellow')">노란색</button>
+    <button type="button" onclick="배경색변경('white')">원래색</button>
+
+    <script>
+      function 배경색변경(color) {
+        /*
+            document.querySelector("body").style.backgroundColor = color;
+            document
+                .querySelector("body")
+                    .style
+                        .backgroundColor = color;
+        */
+        // 매개변수 (Parameter) : 함수를 정의할 때 사용되는 변수
+        const body = document.querySelector("body");
+        body.style.backgroundColor = color;
+      }
+    </script>
+
+    <h3>문제4: 이름 입력받고 인사하기</h3>
+    <input type="text" id="이름입력" placeholder="이름을 입력하세요" />
+    <button type="button" onclick="인사하기()">인사하기</button>
+    <div id="인사결과"></div>
+    <script>
+      const input1 = document.getElementById("이름입력");
+      const sayResult = document.getElementById("인사결과");
+      function 인사하기() {
+        const name = input1.value;
+        sayResult.innerHTML = "안녕하세요, " + name + "님!";
+      }
+      // 그 외 방법
+      // sayResult 앞에 자료형을 붙여주지 않았을 때
+      // 전역변수로 해서 function 이외에도 사용할 수 있도록 설정
+      // 함수 인사하기 바깥에서도 sayResult를 사용할 수 있도록 설정
+      // 되도록이면 sayResult 앞에 let, const를 붙여주는 것이 좋음
+      function 인사하기() {
+        const sayResult = document.getElementById("이름입력").value;
+        document.getElementById("인사결과").innerHTML =
+          "안녕하세요, " + sayResult + "님";
+        // const hi
+        const hi = document.getElementById("인사결과");
+        hi.innerHTML = "안녕하세요, " + name + "님!";
+      }
+    </script>
+    <h3>inner HTML TEXT 차이점</h3>
+    <div>
+      <div id="xInnerHTML"></div>
+      <div id="xInnerText"></div>
+      <button type="button" onclick="Inner확인하기()">확인하기</button>
+    </div>
+    <script>
+      /*
+        innerHTML :  내부에서 html태그를 인식하고 처리
+
+        innerText : 내부에서 html태그를 인식하지 않고 오직 순수한 텍스트 값만 다룸
+      */
+      function Inner확인하기() {
+        const a = document.getElementById("xInnerHTML");
+        const b = document.getElementById("xInnerText");
+
+        a.innerHTML = "<h1>안녕하세요</h1>";
+        b.innerText = "<h1>안녕하세요</h1>";
+      }
+    </script>
+
+    <h3>문제5: 간단한 계산기</h3>
+    <input type="number" id="숫자1" placeholder="첫 번째 숫자" />
+    <input type="number" id="숫자2" placeholder="두 번째 숫자" />
+    <button type="button" onclick="계산하기('+')">더하기</button>
+    <button type="button" onclick="계산하기('-')">빼기</button>
+    <button type="button" onclick="계산하기('*')">곱하기</button>
+    <div id="계산결과"></div>
+
+    <script>
+      function 계산하기(연산자) {
+        const num1 = document.getElementById("숫자1");
+        const num2 = document.getElementById("숫자2");
+        const culcResult = document.getElementById("계산결과");
+        if (true) {
+        }
+      }
+    </script>
+  </body>
+</html>

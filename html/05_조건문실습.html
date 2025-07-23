@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>조건문 실습문제</title>
+  </head>
+  <body>
+    <h1>조건문 실습문제</h1>
+    <h4>실제 상황1</h4>
+    <p>친구: 00아, 돈 좀 빌려줘</p>
+    <p>나 : 얼마 필요합니까?</p>
+    <p>
+      친구:
+      <input type="number" id="input1" />원 만 빌려줘
+    </p>
+    <p>나: 확인해볼게요.</p>
+    <button type="button" onclick="잔액확인하기()">확인하기</button>
+    <script>
+      function 잔액확인하기() {
+        // 1. 친구가 빌려달라는 금액 javascript에서 확인
+        const n1 = document.getElementById("input1");
+        const v1 = Number(n1.value);
+        // 2. 만약에 친구가 빌려달라는 금액이 5000원 이상이면 잔액이 없어서 힘들 것 같아.
+        // 3. 5000원 이하면 언제까지 돌려줄 수 있는지 알려줘^^ 를 보냄
+        // 4. (alert) 사용 if- else 문 사용
+        if (v1 > 5000) {
+          alert("잔액이 없어서 힘들 것 같아");
+        } else {
+          alert("그래, 언제까지 돌려줄 수 있는지 알려줘^^");
+        }
+      }
+    </script>
+  </body>
+</html>
