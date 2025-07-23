@@ -74,5 +74,57 @@
         }
       }
     </script>
+
+    <hr />
+
+    <h1>if(만약에) - else if(아니라면 이렇게, 저렇게) - else(모두 아니면)</h1>
+    <pre>
+<code>
+    if(조건식1){
+        조건식1이 true인 경우에만 실행;
+    } else if(조건식2){
+        앞선 if의 조건이 false이면서
+        else if의 조건식이 true인 경우;
+    } else {
+        모든 if, else if가 false인 경우 실행;
+    }
+</code>
+*else if 구문은 원하는 만큼 작성 가능
+* 앞선 if / else  if 문 조건이 false인 경우 
+  이후 else if 에서 해당 범위는 제외
+    </pre>
+
+    <h3>어린이, 청소년, 성인 구분하기</h3>
+    <pre>
+나이를 입력받아
+0 ~ 13세 : 어린이
+14 ~ 19세 : 청소년
+20 ~ 150세 : 성인
+0미만 150초과 : 잘 못 입력하셨습니다.
+미입력 : 값을 입력해주세요.
+    </pre>
+    나이 : <input type="number" id="inputAge" />
+    <button type="button" onclick="check4()">확인하기</button>
+    <script>
+      const input = document.getElementById("inputAge");
+
+      // 확인하기 버튼을 클릭했을 때
+      function check4() {
+        // 입력한 나이 값 얻어오기
+        const age = Number(input.value);
+        // || = or , 또는, 양 쪽 중에서 둘 중 하나라도 참일 경우 = true
+        // && = and , 양 쪽 모두 참일 경우 = true
+        if (age < 0 || age > 150) {
+          // 1. 0 미만 150 초과
+          alert("잘 못 입력하셨습니다.");
+        } else if (age >= 0 && age <= 13) {
+          alert("어린이");
+        } else if (age <= 19) {
+          alert("청소년");
+        } else {
+          alert("성인");
+        }
+      }
+    </script>
   </body>
 </html>
