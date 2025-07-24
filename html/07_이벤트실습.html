@@ -24,6 +24,11 @@
       btn3.addEventListener("click", function () {
         box3.style.backgroundColor = input3.value;
       });
+      input3.addEventListener("keyup", function (e) {
+        if (e.key == "Enter") {
+          box3.style.backgroundColor = input3.value;
+        }
+      });
     </script>
 
     <div class="container3">
