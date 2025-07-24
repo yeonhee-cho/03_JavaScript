@@ -65,3 +65,14 @@ function 주문완료기능() {
   `;
   */
 }
+
+// 주문 초기화 기능
+/*
+    orders, innerHTML , value 빈 값 처리 
+*/
+// 전체 form 처리 후 버튼 타입 reset으로 바꿔도 됨
+function 주문초기화기능() {
+  orders = "";
+  document.getElementById("menuResult").innerHTML = "";
+  document.getElementById("menuSelect").value = "";
+}
