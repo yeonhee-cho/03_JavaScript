@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript 이벤트 실습 문제</title>
+    <style>
+      body {
+        margin: 20px;
+        background-color: #f5f5f5;
+      }
+
+      .problem {
+        background: white;
+        margin: 20px 0;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .problem h3 {
+        color: #333;
+        border-bottom: 2px solid #007bff;
+        padding-bottom: 10px;
+      }
+
+      /* 문제 1 스타일 */
+      #colorBox {
+        width: 200px;
+        height: 100px;
+        background-color: #ddd;
+        border: 2px solid #333;
+        margin: 10px;
+        cursor: pointer;
+        text-align: center;
+        line-height: 100px;
+        font-weight: bold;
+      }
+
+      /* 문제 2 스타일 */
+      #sizeBox {
+        width: 100px;
+        height: 100px;
+        background-color: #ff6b6b;
+        margin: 10px;
+        transition: all 0.3s ease;
+      }
+
+      #sizeBox:hover {
+        cursor: pointer;
+      }
+
+      /* 문제 3 스타일 */
+      .container3 {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 10px 0;
+      }
+
+      #display {
+        padding: 10px;
+        background-color: #e9ecef;
+        border-radius: 5px;
+        min-width: 100px;
+        text-align: center;
+        font-weight: bold;
+      }
+
+      /* 문제 4 스타일 */
+      .image-container {
+        text-align: center;
+        margin: 20px 0;
+      }
+
+      #toggleImage {
+        width: 200px;
+        height: 150px;
+        background-color: #4ecdc4;
+        border: 2px solid #333;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        margin: 0 auto;
+        font-size: 18px;
+        color: white;
+        font-weight: bold;
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      /* 문제 5 스타일 */
+      .container5 {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .input-group {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      #result {
+        padding: 15px;
+        background-color: #f8f9fa;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        min-height: 50px;
+        margin-top: 10px;
+      }
+
+      input,
+      button {
+        padding: 8px 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        border: none;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>JavaScript 이벤트 실습 문제</h1>
+
+    <!-- 문제 1 -->
+    <div class="problem">
+      <h3>문제 1: 클릭할 때마다 색상 변경</h3>
+      <p>
+        박스를 클릭할 때마다 빨강 → 파랑 → 초록 → 노랑 → 빨강 순서로 색상이
+        변경되도록 하세요.
+      </p>
+      <div id="colorBox">클릭하세요!</div>
+    </div>
+
+    <!-- 문제 2 -->
+    <div class="problem">
+      <h3>문제 2: 더블클릭으로 크기 변경</h3>
+      <p>
+        박스를 더블클릭할 때마다 크기가 100px → 150px → 200px → 100px 순서로
+        변경되도록 하세요.
+      </p>
+      <div id="sizeBox"></div>
+      <p>현재 크기: <span id="currentSize">100px</span></p>
+    </div>
+
+    <!-- 문제 3 -->
+    <div class="problem">
+      <h3>문제 3: 키보드 입력과 실시간 표시</h3>
+      <p>
+        입력창에 텍스트를 입력하면 실시간으로 글자 수와 함께 표시되도록 하세요.
+        <br />
+        ESC 키를 누르면 입력창이 초기화되도록 하세요.
+      </p>
+      <div class="container3">
+        <input type="text" id="textInput" placeholder="텍스트를 입력하세요" />
+        <div id="display">글자 수: 0</div>
+      </div>
+    </div>
+
+    <!-- 문제 4 -->
+    <div class="problem">
+      <h3>문제 4: 마우스 호버와 이미지 토글</h3>
+      <p>
+        박스에 마우스를 올리면 "숨김" 버튼이 나타나고, 버튼을 클릭하면 박스가
+        사라집니다. <br />
+        "다시 보기" 버튼을 클릭하면 박스가 다시 나타납니다.
+      </p>
+      <div class="image-container">
+        <div id="toggleImage">이미지 박스</div>
+        <button id="hideBtn" class="hidden">숨김</button>
+        <button id="showBtn" class="hidden">다시 보기</button>
+      </div>
+    </div>
+
+    <!-- 문제 5 -->
+    <div class="problem">
+      <h3>문제 5: 폼 검증과 결과 표시</h3>
+      <p>
+        이름과 나이를 입력받아서, 올바른 형식인지 검증한 후 결과를 표시하세요.
+        <br />
+        - 이름: 2글자 이상, 한글만 허용 <br />
+        - 나이: 1~120 사이의 숫자
+      </p>
+      <div class="container5">
+        <div class="input-group">
+          <label>이름:</label>
+          <input type="text" id="nameInput" placeholder="홍길동" />
+          <label>나이:</label>
+          <input type="number" id="ageInput" placeholder="25" />
+          <button id="submitBtn">검증하기</button>
+        </div>
+        <div id="result">결과가 여기에 표시됩니다.</div>
+      </div>
+    </div>
+
+    <script>
+      // 문제 1: 클릭할 때마다 색상 변경
+      const colorBox = document.querySelector("#colorBox");
+      const colors = ["red", "blue", "green", "yellow"];
+      let colorIndex = 0;
+
+      colorBox.addEventListener("click", function () {
+        this.style.backgroundColor = colors[colorIndex];
+        colorIndex = (colorIndex + 1) % colors.length;
+      });
+
+      // 문제 2: 더블클릭으로 크기 변경
+      const sizeBox = document.querySelector("#sizeBox");
+      const currentSize = document.querySelector("#currentSize");
+      const sizes = [100, 150, 200];
+      let sizeIndex = 0;
+
+      sizeBox.addEventListener("dblclick", function () {
+        sizeIndex = (sizeIndex + 1) % sizes.length;
+        const newSize = sizes[sizeIndex];
+        this.style.width = newSize + "px";
+        this.style.height = newSize + "px";
+        currentSize.innerText = newSize + "px";
+      });
+
+      // 문제 3: 키보드 입력과 실시간 표시
+      const textInput = document.querySelector("#textInput");
+      const display = document.querySelector("#display");
+
+      textInput.addEventListener("input", function () {
+        const text = this.value;
+        const length = text.length;
+        display.innerHTML = `"${text}" - 글자 수: ${length}`;
+      });
+
+      textInput.addEventListener("keyup", function (e) {
+        if (e.key === "Escape") {
+          this.value = "";
+          display.innerHTML = "글자 수: 0";
+        }
+      });
+
+      // 문제 4: 마우스 호버와 이미지 토글
+      const toggleImage = document.querySelector("#toggleImage");
+      const hideBtn = document.querySelector("#hideBtn");
+      const showBtn = document.querySelector("#showBtn");
+
+      toggleImage.addEventListener("mouseenter", function () {
+        hideBtn.classList.remove("hidden");
+      });
+
+      toggleImage.addEventListener("mouseleave", function () {
+        hideBtn.classList.add("hidden");
+      });
+
+      hideBtn.addEventListener("click", function () {
+        toggleImage.classList.add("hidden");
+        hideBtn.classList.add("hidden");
+        showBtn.classList.remove("hidden");
+      });
+
+      showBtn.addEventListener("click", function () {
+        toggleImage.classList.remove("hidden");
+        showBtn.classList.add("hidden");
+      });
+
+      // 문제 5: 폼 검증과 결과 표시
+      const nameInput = document.querySelector("#nameInput");
+      const ageInput = document.querySelector("#ageInput");
+      const submitBtn = document.querySelector("#submitBtn");
+      const result = document.querySelector("#result");
+
+      submitBtn.addEventListener("click", function () {
+        const name = nameInput.value.trim();
+        const age = parseInt(ageInput.value);
+
+        let isValid = true;
+        let message = "";
+
+        // 이름 검증
+        const nameRegex = /^[가-힣]{2,}$/;
+        if (!nameRegex.test(name)) {
+          isValid = false;
+          message += "이름은 2글자 이상의 한글로 입력해주세요.<br>";
+        }
+
+        // 나이 검증
+        if (isNaN(age) || age < 1 || age > 120) {
+          isValid = false;
+          message += "나이는 1~120 사이의 숫자로 입력해주세요.<br>";
+        }
+
+        if (isValid) {
+          result.innerHTML = `<span style="color: green;">✓ 검증 성공!</span><br>이름: ${name}, 나이: ${age}세`;
+          result.style.backgroundColor = "#d4edda";
+          result.style.borderColor = "#c3e6cb";
+        } else {
+          result.innerHTML = `<span style="color: red;">✗ 검증 실패</span><br>${message}`;
+          result.style.backgroundColor = "#f8d7da";
+          result.style.borderColor = "#f5c6cb";
+        }
+      });
+
+      // Enter 키로도 검증할 수 있도록
+      nameInput.addEventListener("keyup", function (e) {
+        if (e.key === "Enter") {
+          submitBtn.click();
+        }
+      });
+
+      ageInput.addEventListener("keyup", function (e) {
+        if (e.key === "Enter") {
+          submitBtn.click();
+        }
+      });
+    </script>
+  </body>
+</html>
