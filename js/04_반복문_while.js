@@ -1,5 +1,5 @@
 /*
-    주문 완료 기능을 이용해서 switch case문으로 주문 완료
+    주문 추가 기능을 이용해서 switch case문으로 주문 완료
     let orders; 라는 명칭으로 주문 담을 것
 
     id = "menuSelect"
@@ -21,7 +21,7 @@
 */
 let orders = ""; // "" 넣어주기
 
-function 주문완료기능() {
+function 주문추가기능() {
   const menu = document.getElementById("menuSelect").value;
   // 고객이 원하는 메뉴를 주문하는 것은 다양한 선택지가 존재하기 때문에 let을 사용하는 것
   let foodName, price;
@@ -75,4 +75,17 @@ function 주문초기화기능() {
   orders = "";
   document.getElementById("menuResult").innerHTML = "";
   document.getElementById("menuSelect").value = "";
+}
+
+function 주문완료기능() {
+  // 만약에 orders가 빈값이라면 alert "주문한 메뉴가 없습니다." 띄우기
+  // 주문이 존재한다면 alert "주문이 완료되었습니다." 띄우기
+  if (orders == "") {
+    alert("주문한 메뉴가 없습니다.");
+  } else {
+    alert("주문이 완료되었습니다.");
+  }
+  // NOTE ctrl + space : 코드 찾을 때 좋아요!
+  // 주문을 완료하고 orders 비우기
+  주문초기화기능();
 }
