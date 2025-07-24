@@ -20,6 +20,7 @@
     }
 */
 let orders = ""; // "" 넣어주기
+let 주문번호 = 0; // 카운터 기능 추가
 
 function 주문추가기능() {
   const menu = document.getElementById("menuSelect").value;
@@ -52,8 +53,10 @@ function 주문추가기능() {
   // 주문 추가
   // orders = orders + foodName + price + "원<br>";
   // -> 백틱 형태로 감싸서 ${변수이름} 변경
-  orders = `${orders} ${foodName} ${price}원<br>`;
-
+  // ++주문번호는 주문을 1개 추가한 상태에서 현재 주문이 어디까지 진행됐는지 바로 확인
+  // 주문번호++는 주문이 추가 되기 전 상태를 확인
+  orders = `${orders} ${foodName} ${price}원 * ${++주문번호} 개<br>`;
+  // TODO
   // 주문에 대한 결과를 화면에 보여주기
   document.getElementById("menuResult").innerHTML = orders;
   /* 
