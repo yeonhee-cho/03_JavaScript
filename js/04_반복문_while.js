@@ -92,3 +92,48 @@ function 주문완료기능() {
   // 주문을 완료하고 orders 비우기
   주문초기화기능();
 }
+
+// 비밀번호 확인
+function 비밀번호체크() {
+  // while문으로 계속 체크, while문이 false가 될 때까지 무한 반복
+  let password = document.getElementById("비밀번호입력").value;
+  let 시도횟수 = 0;
+  let 결과메세지 = "";
+
+  /*
+          == 양옆의 값이 일치할 경우 true
+          != 양옆의 값이 일치하지 않을 경우 true
+        */
+  while (password != "1234") {
+    // return은 모두 중지를 뜻함. return을 이용해서 false대신 while 중단가능
+    console.log("while문 내부로 접속했습니다."); // console.log 개발자가 문제를 찾기위한 도구
+
+    // 1. 비밀번호가 틀렸으면
+    /*
+          if (password != "1234") {
+            console.log("if문 내부로 접속했습니다.");
+
+            document.getElementById(
+              "pwResult"
+            ).innerHTML = `<h6>다시입력하세요.</h6>`;
+          }
+          */
+    // 비밀번호가 틀렸을 때 새로운 비밀번호 입력받기
+    /*
+            prompt() 프롬프트 값을 입력할 수 있는 alert창과 같은 존재
+            확인 취소 버튼 존재
+          */
+    password = prompt("비밀번호가 틀렸습니다. 다시입력하세요."); // prompt 입력하는 창이 나옴
+
+    // 사용자가 비밀번호를 더이상 그만치고 싶어서 취소를 누른 경우
+    if (password == null) {
+      // null 사용자가 취소를 눌러서 아무값도 아닌 경우
+      document.getElementById("pwResult").innerHTML =
+        "로그인이 취소되었습니다.";
+      return; // 더이상 아래 코드를 실행하지 않고 돌려보내기
+    }
+  }
+
+  // input내부에 작성한 비밀번호가 개발자가 문제 낸 비밀번호와 일치하다면 while문을 탈출
+  document.getElementById("pwResult").innerHTML = "정답입니다.";
+}

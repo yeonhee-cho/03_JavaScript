@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>While문을 이용해서 커피 주문</title>
+  </head>
+  <body>
+    <h1>커피 주문</h1>
+    <pre>
+1. 아메리카노 3000원
+2. 라떼 4000원
+3. 카푸치노 4500원
+0. 주문완료
+    </pre>
+    <input type="number" id="choice" placeholder="번호 입력" />
+    <button type="button" onclick="order()">주문</button>
+    <button type="button" onclick="exit()">종료</button>
+    <div id="orderResult"></div>
+
+    <script>
+      let total = 0; // 총 주문 금액
+      let orderText = ""; // 주문 메뉴
+      let running = true; // 주문 작동 중인 상태
+
+      function order() {
+        let choice = Number(document.getElementById("choice").value);
+        console.log("order 기능 안으로 들어옴");
+
+        // TODO
+        while (running) {
+          choice = prompt("추가 주문을 입력하세요.");
+          if (choice == null) {
+            document.getElementById("orderResult").innerHTML =
+              "주문이 취소되었습니다.";
+            return;
+          }
+          switch (choice) {
+            case 1:
+              orderText = orderText + "아메리카노";
+              total = total + 3000;
+              break;
+            case 2:
+              orderText = orderText + "라떼";
+              total = total + 4000;
+              break;
+            case 3:
+              orderText = orderText + "카푸치노";
+              total = total + 4500;
+              break;
+            case 0:
+              orderText = "주문완료";
+              return;
+              // 주문이 완료되면 주문이 완료되었습니다. 멘트 보여주기
+              // while문 종료하기- orderResult
+              document.getElementById("orderResult").innerText =
+                "주문이 완료되었습니다.";
+              running = false;
+              break;
+
+            default:
+              alert("잘못된 번호 입니다.");
+              break;
+          }
+
+          document.getElementById(
+            "orderResult"
+          ).innerText = `현재 주문 : ${orderText}<br>총액 : ${total}원`;
+        }
+      }
+    </script>
+  </body>
+</html>
