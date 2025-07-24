@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트</title>
+  </head>
+  <body>
+    <h1>이벤트(Event)</h1>
+    <pre>
+* 이벤트 : 동작, 행위, (행사)
+          -> 브라우저에서 할 수 있는 동작
+
+          ex) click, keydown, keypress, keyup,
+              mouseover, mouseon, mouseout, mouseleave,
+              drag, change, submit...
+<a href="https://www.w3schools.com/jsref/dom_obj_event.asp">HTML 이벤트 종류 참고</a>
+* 이벤트 리스너(Event Listener)
+  -> 브라우저에서 이벤트가 감지될 때까지 대기하다가 
+     감지가 되었을 때 연결된 기능(함수)를 수행하는 것
+
+- 이벤트 리스너는 "on이벤트명" 형식으로 작성됨
+
+ex) onclick, onchange, onsubmit, onkeyup ...
+
+* 이벤트 핸들러(Event Handler)
+  -> 이벤트 리스어에 연결된 기능(=함수)으로
+     이벤트가 감지되었을 때 수행할 내용을 작성한 함수(funtion)
+    
+&lt;button onclick="버튼클릭기능()"&gt;클릭&lt;/button&gt;
+
+onclick은 이벤트 리스너에 해당됨
+버튼클릭기능()은 이벤트 핸들러에 해당됨
+
+function 버튼클릭기능(){
+    // 버튼을 클릭하다.
+}
+    </pre>
+    <hr />
+    <hr />
+    <h3>인라인 모델(Inline)</h3>
+    <pre>
+- HTML요소에 이벤트리스너 = "이벤트핸들러" 형식을 작성하는 방법
+  (여태 앞에서 했던 모양들)
+
+- 하나의 요소에 동일한 이벤트 핸들러를 중복 작성x
+  (이전에 작성된 이벤트 핸들러를 새로운 이벤트 핸들러가 덮어쓰기함)
+
+* 최근에는 사용을 많이 하지 않지만 종종 사용됨
+
+* 인라인 이벤트 모델 작성 시 this -> 이벤트가 발생한 현재 요소
+    </pre>
+    <button
+      type="button"
+      onclick="check1(this)"
+      style="background-color: yellow"
+    >
+      인라인 이벤트 모델 확인
+    </button>
+
+    <script>
+      /* 인라인 이벤트 모델 확인 */
+      function check1(btn) {
+        // 매개 변수 : 함수 호출 시 () 내부에 작성된 값을 전달받아 저장하는 함수
+        // 매개 변수 btn === 클릭한 버튼(this)
+        console.log(btn);
+
+        // 버튼의 배경색을 얻어와 저장
+        const bgColor = btn.style.backgroundColor;
+
+        // 처음에는 inline-style로 지정된 배경색이 없어서 "" 빈칸으로 표기됨
+        // 배경 색상으로 yellow를 넣어주었기 때문에 yellow가 출력됨
+        console.log(bgColor);
+
+        // 버튼이 클릭될 때 마다 pink <-> yellow 변경 만들기
+        // if bgColor == "yellow" 면 pink 변경 else yellow 변경하기
+        if (bgColor == "yellow") {
+          btn.style.backgroundColor = "pink";
+        } else {
+          btn.style.backgroundColor = "yellow";
+        }
+      }
+    </script>
+  </body>
+</html>
