@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>요소 접근 방법</title>
+  </head>
+  <body>
+    <h1>DOM(Document Object Model)</h1>
+    <pre>
+웹 문서(HTML)의 모든 요소를 객체 형식으로 표현한 것
+(HTML 요소 == JS에서 객체라고 부름)
+
+-> 문서 내 특정 요소에 접근 가능
+    + 요소(객체)에 속성 값을 세팅 또는 얻어올 수 있다. 
+    </pre>
+
+    document.getElementById("id 속성값"); document.getElementsByClassName("class
+    속성값");
+
+    <hr />
+    <h1>DOM을 이용한 요소 접근하기</h1>
+    <pre>
+1. id로 접근하기 : document.getElementById("id 속성값");
+   -> 아이디가 일치하는 요소(객체)를 얻어옴
+2. class로 접근하기 : document.getElementsByClassName("class속성값");
+   -> 클래스가 일치하는 모든 요소를 얻어와 배열 형태로 반환
+3. name으로 접근하기 : document.getElementsByName("name 속성값");
+   -> name으로 일치하는 모든 요소를 얻어와 목록 형태로 반환
+4. tag로 접근하기 : document.getElementsByTagName("tag 명");
+   -> tag 이름이 일치하는 모든 요소를 얻어와 리스트 목록 형태로 반환
+5. CSS 선택자로 접근하기
+   1) document.querySelector("CSS 선택자");
+      -> 선택자가 선택한 요소 중 첫 번째 요소를 반환
+   2) document.querySelector("CSS 선택자");
+      -> 선택한 요소 모두를 리스트 배열 형태로 반환
+    </pre>
+
+    <hr />
+    <hr />
+    <hr />
+    <style>
+      .chatting {
+        width: 360px;
+        border: 1px solid black;
+        margin: 50px 20px;
+        border-radius: 10px;
+        /* 테두리로 지정된 범위를 벗어나면 나머지는 숨기는 기능
+        border-radius 모서리 범위를 벗어난 나머지는 모두 숨겨짐
+        */
+        overflow: hidden;
+      }
+
+      #chatting-bg {
+        width: 100%;
+        height: 400px;
+        background: rgb(178, 199, 217);
+        overflow: auto; /* 내용이 네모창을 벗어나면 스크롤 생기게 함 */
+      }
+
+      #chatting-bg > p {
+        margin: 20px 10px;
+        text-align: right;
+      }
+
+      #chatting-bg > p > span {
+        background-color: rgb(254, 234, 51);
+        padding: 5px;
+        border-radius: 5px;
+      }
+
+      #chatting-input {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      #chatting-input > input {
+        width: 85%;
+        height: 100%;
+        outline: none;
+        padding-left: 5px;
+        border-radius: 25px;
+        border: 1px solid #ddd;
+        margin-right: 10px;
+      }
+
+      #chatting-input > input:focus {
+        border-color: #007bff;
+      }
+
+      #chatting-input > button {
+        width: 15%;
+        height: 100%;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: #fff;
+      }
+
+      #chatting-input > button:hover {
+        background-color: #0367d1;
+      }
+    </style>
+    <h3>카카오톡 모양의 채팅 화면 만들기</h3>
+    <div class="chatting">
+      <div id="chatting-bg">
+        <p>
+          <span>입력되는 채팅 출력</span>
+        </p>
+        <p>
+          <span>입력되는 채팅 출력</span>
+        </p>
+        <p>
+          <span>입력되는 채팅 출력</span>
+        </p>
+      </div>
+
+      <div id="chatting-input">
+        <input type="text" id="user-input" />
+        <button type="button" onclick="readValue()">입력</button>
+      </div>
+    </div>
+
+    <script>
+      function readValue() {
+        const input = document.getElementById("user-input");
+        const msg = input.value;
+
+        if (msg.trim() === "") {
+          // trim() : 트림은 메세지에서 스페이스바를 포함해서 공백모두 제거 ** 외우기
+          return; // 메세지 보내기를 취소하고 되돌려보내기
+          // function readValue 기능 중지
+        }
+
+        const chatBg = document.getElementById("chatting-bg");
+        const newMsg = document.createElement("p"); // <p> 태그를 HTML 내부에 추가하겠다.
+        newMsg.innerHTML = `<span>${msg}</span>`; // p 태그 내부에 span태그로 감싼 후 클라이언트가 작성한 msg를 넣어주겠다.
+
+        chatBg.appendChild(newMsg); // 입력한 값을 더해라
+        input.value = ""; // 그리고 채팅 입력칸에는 비워줘
+      }
+    </script>
+  </body>
+</html>
