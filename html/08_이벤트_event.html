@@ -45,7 +45,7 @@
       const btnE = document.getElementById("btn-e");
       const btnEvent = document.getElementById("btn-event");
       const result1 = document.getElementById("result1");
-      // 0. 매개변수(=파라미터)의 값을 e 나 event 이외의 명칭으로 작성가능하지만 개발자들 간의 약속 명칭으로 e를 사용 // TODO
+      // 0. 매개변수(=파라미터)의 값을 e 나 event 이외의 명칭으로 작성가능하지만 개발자들 간의 약속 명칭으로 e나 event 사용
       // 1. e로 작성한 방법
       btnE.addEventListener("click", function (e) {
         console.log("e", e);
@@ -118,6 +118,15 @@ function 타겟확인(e) {
           `;
         });
       </script>
+      <div class="예제3번클래스">
+        <div>예제 3 : value 사용법(*중요*)</div>
+        <pre>
+function 값확인(e) {
+    console.log("입력값 : ", e.target.value);
+    console.log("입력 타입 : ", e.target.type);
+}
+        </pre>
+      </div>
     </div>
   </body>
 </html>
