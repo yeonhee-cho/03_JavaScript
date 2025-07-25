@@ -41,25 +41,6 @@
       </div>
     </div>
 
-    <script>
-      const btnE = document.getElementById("btn-e");
-      const btnEvent = document.getElementById("btn-event");
-      const result1 = document.getElementById("result1");
-      // 0. 매개변수(=파라미터)의 값을 e 나 event 이외의 명칭으로 작성가능하지만 개발자들 간의 약속 명칭으로 e나 event 사용
-      // 1. e로 작성한 방법
-      btnE.addEventListener("click", function (e) {
-        console.log("e", e);
-        result1.textContent = `e 사용 - 이벤트 타입 : ${e.type}, 클릭된 요소 : ${e.target.textContent}`;
-      });
-
-      // 2. event로 작성한 방법
-      btnEvent.addEventListener("click", function (event) {
-        console.log("event", event);
-
-        result1.textContent = `event 사용 - 이벤트 타입 : ${event.type}, 클릭된 요소 : ${event.target.textContent}`;
-      });
-    </script>
-
     <div class="예제2번클래스">
       <div>예제 2 : target 사용법</div>
       <pre>
@@ -80,53 +61,54 @@ function 타겟확인(e) {
         >
         <div id="result2" class="결과">요소를 클릭해보세요.</div>
       </div>
+    </div>
 
-      <script>
-        const btnA = document.getElementById("btn-A");
-        const btnB = document.getElementById("btn-B");
-        const result2 = document.getElementById("result2");
-        // 예제 2 : target 활용하기
-        // 버튼 A 를 클릭했을 때 버튼 A에 대한 요소 result2 출력
-        // textContent 줄바꿈 처리 방법 : /n과 <br/> 태그가 아니라\n 사용!!
-        //                                css로 white-space : pre-line;을 추가해야 \n이 작동한다.
-        btnA.addEventListener("click", function (e) {
-          result2.textContent = `태그 : ${e.target.tagName},\n 
-          내용 : ${e.target.textContent},\n 
-          ID명칭 : ${e.target.id}, \n 
-          Class명칭 : ${e.target.className}`;
-        });
-        // 버튼 B 처리
-        btnB.addEventListener("click", function (event) {
-          result2.textContent = `태그 : ${event.target.tagName},
-          내용 : ${event.target.textContent},
-          ID명칭 : ${event.target.id}, 
-          Class명칭 : ${event.target.className}
-          `;
-        });
-
-        /* 
-            span 태그 내부에 id 명칭 btn-C 생성
-            btn-C 라는 명칭으로 span 태그를 클릭했을 때 
-            span 태그의 내용, ID명칭, Class 명칭 확인 설정
-        */
-        const btnC = document.getElementById("btn-C");
-        btnC.addEventListener("click", function (e) {
-          result2.textContent = `태그 : ${event.target.tagName},
-          내용 : ${event.target.textContent},
-          ID명칭 : ${event.target.id}, 
-          Class명칭 : ${event.target.className}
-          `;
-        });
-      </script>
-      <div class="예제3번클래스">
-        <div>예제 3 : value 사용법(*중요*)</div>
-        <pre>
+    <div class="예제3번클래스">
+      <div>예제 3 : value 사용법(*중요*)</div>
+      <pre>
 function 값확인(e) {
     console.log("입력값 : ", e.target.value);
     console.log("입력 타입 : ", e.target.type);
 }
-        </pre>
+        </pre
+      >
+      <div class="실습클래스">
+        <input type="text" id="text-input" placeholder="텍스트 입력" />
+        <input type="number" id="number-input" placeholder="숫자 입력" />
+        <select id="select-input" name="추후value값을전달하기위한변수이름설정">
+          <option value="">선택하세요.</option>
+          <option value="옵션1">옵션1</option>
+          <option value="옵션2">옵션2</option>
+        </select>
+        <div id="result3" class="결과">입력하거나 선택해보세요.</div>
       </div>
+    </div>
+    <div class="예제4번클래스">
+      <div>예제 4 : 종합 활용</div>
+      <pre>
+function 로그인처리(e){
+    e.preventDefault(); // 폼 제출 방지
+    const 사용자명 = document.getElementById("username").value;
+    const 비밀번호 = document.getElementById("password").value;
+
+    console.log("폼 제출 이벤트 : ", e.type);
+    console.log("제출 버튼 : ", e.target);
+    console.log("사용자명 : ", e.사용자명);
+}
+        </pre
+      >
+      <div class="실습클래스">
+        <form id="login-form">
+          <input type="text" id="username" placeholder="사용자이름" required />
+          <input type="password" id="userPw" placeholder="비밀번호" required />
+          <button type="submit">로그인</button>
+          <div id="result4" class="결과">
+            폼을 작성하고 로그인 버튼을 클릭해보세요.
+          </div>
+        </form>
+      </div>
+
+      <script src="../js/08_이벤트_event.js"></script>
     </div>
   </body>
 </html>
