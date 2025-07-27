@@ -65,9 +65,10 @@ calculateBtn.addEventListener("click", function () {
       break;
 
     default:
-      calcResult.textContent = `${number1} ${op} ${number2} = ${result}`;
       break;
   }
+
+  calcResult.textContent = `${number1} ${op} ${number2} = ${result}`;
 });
 
 // - **Number() 변환**: 문자열을 숫자로 변환
