@@ -55,10 +55,94 @@ function displayMenus() {
 // displayMenus() 만들어진 기능을 html화면이 보이자마자 사용할 수 있도록 호출
 displayMenus();
 
-// 랜덤Math.random 사용해서 메뉴 랜덤으로 선택하기
+addBtn.addEventListener("click", function () {
+  const newMenu = menuInput.value.trim();
 
-// 뽑기 버튼에 해당하는 selectBtn에 클릭했을 때
-// 현재 메뉴 목록에 작성된 메뉴를 랜덤으로 선택하기
+  // 1. 빈 값 체크
+  if (newMenu.length === 0) {
+    validationMessage.textContent = "메뉴를 입력해주세요.";
+    validationMessage.className = "validation-message error";
+
+    // input 창으로 focus 맞추기
+    menuInput.focus();
+    // return으로 되돌리기
+    return;
+  }
+
+  /*
+  // 2. 정규식 검사 test에서 문제가 없을 경우 true 일 경우
+  if (menuRegex.test(newMenu)) {
+    menus.push(newMenu);
+    menuInput.value = "";
+    validationMessage.textContent = `${newMenu} 메뉴가 추가되었습니다.`;
+    validationMessage.className = "validation-message success";
+    // 추가된 메뉴를 다시 볼 수 있도록 displayMenus() 다시 호출
+    displayMenus();
+  } else {
+    // 만약에 문제가 존재할 경우
+    validationMessage.textContent = `한글, 영어, 숫자만 포함해서 2 ~ 10 글자로 입력해주세요.`;
+    validationMessage.className = "validation-message error";
+
+    // input 창으로 focus 맞추기
+    menuInput.focus();
+    // return으로 되돌리기
+    return;
+  }
+  */
+  /* 
+    if (menuRegex.test(newMenu)) {   } else { 일 때 , 
+    else 만 필요할 경우 
+    if (menuRegex.test(newMenu)) { -> if (!menuRegex.test(newMenu)) {
+  */
+  if (!menuRegex.test(newMenu)) {
+    // 정규식과 소비자가 작성한 메뉴 입력을 비교했을 때 정규식과 일치하지 않는게 사실이라면 = true로 설정하겠다 -> 맨 앞에 !를 붙여줌
+    // 만약에 문제가 존재할 경우
+    validationMessage.textContent = `한글, 영어, 숫자만 포함해서 2 ~ 10 글자로 입력해주세요.`;
+    validationMessage.className = "validation-message error";
+
+    // input 창으로 focus 맞추기
+    menuInput.focus();
+    // return으로 되돌리기
+    return;
+  }
+
+  // 메뉴 중복 확인하기
+  if (menus.includes(newMenu)) {
+    // 메뉴 목록에 소비자가 작성한 메뉴 입력값이 존재하는게 맞다면
+    validationMessage.textContent = "이미 존재하는 메뉴입니다.";
+    validationMessage.className = "validation-message error";
+    menuInput.focus();
+    return; // displatMenus()까지 가지 못하도록 기능 중단할 수 있도록 되돌리기
+  }
+
+  // 2. 정규식 검사 test에서 문제가 없을 경우 true 일 경우
+  menus.push(newMenu);
+  menuInput.value = "";
+  validationMessage.textContent = `${newMenu} 메뉴가 추가되었습니다.`;
+  validationMessage.className = "validation-message success";
+  // 추가된 메뉴를 다시 볼 수 있도록 displayMenus() 다시 호출
+  displayMenus();
+});
+
+/* 
+    className
+    HTML 요소 전체 class 속성을 문자열로 다루는 방식 한 번에 교체할 때 사용
+
+    classList
+    HTML 요소의 class 들을 개별적으로 관리하는 방식
+    class를 하나씩 추가/제거/ 토글 가능
+*/
+
+// menuInput Enter 키로 메뉴 추가하기
+menuInput.addEventListener("keyup", (e) => {
+  // 만약에 Enter키가 입력됐다면
+  if (e.key === "Enter") {
+    // 추가하기
+    menus;
+  }
+});
+
+// 메뉴를 랜덤으로 선택하기 기능
 selectBtn.addEventListener("click", function () {
   // 만약에 length가 === 0 이라면
   if (menus.length === 0) {
