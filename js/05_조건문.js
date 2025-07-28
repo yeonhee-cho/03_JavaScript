@@ -35,9 +35,7 @@ function check4() {
   // && = and , 양 쪽 모두 참일 경우 = true
   console.log(age);
 
-  if (!age) {
-    alert("값을 입력해주세요."); // TODO 0일 경우?
-  } else if (age < 0 || age > 150) {
+  if (age < 0 || age > 150) {
     // 1. 0 미만 150 초과
     alert("잘 못 입력하셨습니다.");
   } else if (age >= 0 && age <= 13) {
