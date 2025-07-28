@@ -51,7 +51,7 @@ inputId.addEventListener("input", (e) => {
   }
 });
 
-// 비밀번호 검사 // TODO checkPw기능()
+// 비밀번호 검사
 inputPw.addEventListener("input", (e) => {
   const valPw = e.target.value;
 
@@ -145,7 +145,7 @@ inputName.addEventListener("input", (e) => {
 });
 
 // 회원가입 버튼
-btn.addEventListener("click", (e) => {
+btn.addEventListener("submit", (e) => {
   // 모든 checkList 항목이 true 인지 확인하고 true가 아니라면 회원가입 불가!! true라면 회원가입 가능
   // 모든 유효성 검사 통과 여부 확인
 
@@ -153,23 +153,23 @@ btn.addEventListener("click", (e) => {
   if (checkList.inputId == false) {
     alert("아이디가 유효하지 않습니다.");
     inputId.focus();
+    e.preventDefault(); // 제출방지, button 타입이 submit 일 때 주로 사용
     return;
   }
 
   // 만약에 비밀번호 값이 일치하지 않는게 맞다면 false 가 맞다면
   if (checkList.inputPw == false) {
     alert("비밀번호가 유효하지 않습니다.");
+    e.preventDefault(); // 제출방지, button 타입이 submit 일 때 주로 사용
     inputPw.focus();
     return;
   }
 
   // 만약에 비밀번호 확인 값이 일치하지 않는게 맞다면 false 가 맞다면
   if (checkList.inputPwCheck == false) {
-    // TODO
-    console.log("??");
-
     alert("비밀번호 확인이 유효하지 않습니다.");
     inputPwCheck.focus();
+    e.preventDefault(); // 제출방지, button 타입이 submit 일 때 주로 사용
     return;
   }
 
@@ -177,6 +177,7 @@ btn.addEventListener("click", (e) => {
   if (checkList.inputName == false) {
     alert("이름이 유효하지 않습니다.");
     inputName.focus();
+    e.preventDefault(); // 제출방지, button 타입이 submit 일 때 주로 사용
     return;
   }
 
@@ -185,6 +186,7 @@ btn.addEventListener("click", (e) => {
   const gender = document.querySelector("[name='gender']:checked");
   if (gender == null) {
     alert("성별을 선택해주세요.");
+    e.preventDefault(); // 제출방지, button 타입이 submit 일 때 주로 사용
     return;
   }
 
