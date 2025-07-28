@@ -58,9 +58,18 @@ function addItem() {
 
   // 화면에 목록 표시
   let listText = "🛒 쇼핑 목록:\n\n";
+  /*
   for (let i = 0; i < items.length; i++) {
     listText += `${i + 1}. ${items[i]}\n`;
   }
+  */
+  // for문을 while문으로 바꿀경우
+  let i = 0; // 초기 조건식을 빼주기
+  while (i < items.length) {
+    listText += `${i + 1}. ${items[i]}\n`;
+    i++;
+  }
+
   shoppingList.textContent = listText;
 
   // 입력창 비우기
