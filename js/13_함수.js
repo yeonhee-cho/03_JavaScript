@@ -103,10 +103,51 @@ arrowList[1].addEventListener("click", (e) => {
 
 /* return 한 줄만 작성된 경우 */
 arrowList[2].addEventListener("click", (e) => {
-  const input1 = Number(prompt("첫 번째 값 "));
-  const input2 = Number(prompt("두 번째 값 "));
+  // const input1 = Number(prompt("첫 번째 값 "));
+  // const input2 = Number(prompt("두 번째 값 "));
 
-  alert(input1 + input2);
+  // alert(input1 + input2);
+  // alert(더하기기능(input1, input2));
+  // alert((input1, input2) => input1 + input2); // 노출 값 : (input1, input2) => input1 + input2
+  // 화살표 함수 자체를 출력하겠다.
+  // (input1, input2) => input1 + input2 내용이 그대로 출력
+  // 더하기 계산식이 되지 않고, 더하기 계산 방법을 보여주는 형태
+
+  계산기능((a, b) => a + b);
+  계산기능((a, b) => a - b);
+  계산기능((a, b) => a * b);
+  계산기능((a, b) => a / b);
 });
 
+// 1: 일반 함수로 선언
+/*
+function 더하기기능(a, b) {
+  return a + b;
+}
+*/
+function 계산기능(익명함수기능) {
+  const input1 = Number(prompt("첫 번째 값 "));
+  const input2 = Number(prompt("두 번째 값 "));
+  alert(익명함수기능(input1, input2));
+}
+
 /* return 한 줄인데 object 반환하는 경우 */
+arrowList[3].addEventListener("click", () => {
+  // const obj = 기능("홍길동", 20);
+
+  확인하기((name, age) => {
+    return {
+      name: name,
+      age: age,
+    };
+
+    // JS {Key : Value, Key : Value}
+    // Key : 값을 꺼내기 위한 키, Value : 키 내부에 들어있는 값
+  });
+});
+
+function 확인하기(기능) {
+  const obj = 기능("홍길동", 20);
+  console.log("obj.name : ", obj.name);
+  console.log("obj.age : ", obj.age);
+}
