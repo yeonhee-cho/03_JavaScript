@@ -110,6 +110,7 @@ addBtn.addEventListener("click", function () {
   if (menus.includes(newMenu)) {
     // 메뉴 목록에 소비자가 작성한 메뉴 입력값이 존재하는게 맞다면
     validationMessage.textContent = "이미 존재하는 메뉴입니다.";
+    // ** className -> classList add remove 변경해서 validation-message 와 그 뒤에 error 나 success 추가기능
     validationMessage.className = "validation-message error";
     menuInput.focus();
     return; // displatMenus()까지 가지 못하도록 기능 중단할 수 있도록 되돌리기
@@ -138,7 +139,7 @@ menuInput.addEventListener("keyup", (e) => {
   // 만약에 Enter키가 입력됐다면
   if (e.key === "Enter") {
     // 추가하기
-    menus;
+    addBtn.click(); // Enter키 저장되도록 설정
   }
 });
 
