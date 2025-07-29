@@ -14,7 +14,7 @@ fetchPost.addEventListener("click", function () {
       <strong>userID : </strong> ${data.userId}<br>
       <strong>Id : </strong> ${data.id}<br>
       <strong>Title : </strong> ${data.title}<br>
-      <strong>Body : </strong> ${data.body}<br>
+      <strong>Body : </strong> ${data.body}
       `;
     }); // data라는 이름으로 많이 쓰임
 });
