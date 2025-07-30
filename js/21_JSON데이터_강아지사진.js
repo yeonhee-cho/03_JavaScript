@@ -19,7 +19,7 @@ randomDog.addEventListener("click", () => {
     });
 });
 
-/** TODO 코드를 작성해야하거나, 코드 설명, 코드 내용 포함 주석
+/** "TODO" 코드를 작성해야하거나, 코드 설명, 코드 내용 포함 주석
  *
  * parse() json() 메서드 차이!
  *
