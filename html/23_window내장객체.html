@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>window 내장 객체</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="../css/23_window내장객체.css" />
     <link rel="icon" type="image/png" href="../img/pumkin.png" />
   </head>
@@ -11,14 +16,17 @@
     <h1>window 내장 객체</h1>
 
     <div class="container">
+      <button id="open_25stopWatch">스톱워치</button>
+      <hr />
       <!-- 예) 주소입력 시 쓰임 -->
       팝업창에서 읽어갈 값 : <input type="text" id="readValue" />
-      <button id="open_24popup">팝업창(자식) 열기</button>
+      <button id="open_24popUp">팝업창(자식) 열기</button>
 
       <hr />
 
       <!-- 예) 중복확인 할 때 쓰임 -->
       팝업창에서 작성한 값 : <input type="text" id="writeValue" />
+      <hr />
     </div>
 
     <pre>
