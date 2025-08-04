@@ -90,3 +90,12 @@ resetBtn.addEventListener("click", () => {
   
   append()
 */
+
+recordBtn.addEventListener("click", () => {
+  const li = document.createElement("li"); // 요소 생성
+
+  // li 요소의 내용으로 #display 에 출력된 시간을 가져와 추가
+  li.innerText = display.innerText;
+
+  recordContainer.prepend(li);
+});
