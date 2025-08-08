@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>크롤링 스크래핑</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../css/29_crawling_scraping.css" />
+    <link rel="icon" type="image/png" href="../img/pumkin.png" />
+  </head>
+  <body>
+    <h1>웹 크롤링(Web Crawling)</h1>
+    <pre>
+인터넷 상의 웹 페이지들을 자동으로 방문하고 탐색하여 데이터를 수집하는 과정
+    </pre>
+    <h1>웹 스크래핑(Web Scraping)</h1>
+    <pre>
+특정 페이지의 데이터를 추출하는 과정
+    </pre>
+    <h3>크롤링 진행하는 방법</h3>
+    <pre>
+javaScript 나 python 언어를 활용하여 진행
+javaScript nodeJS 설치 후 데이터 수집 가능
+1. nodeJS 설치
+2. 필요한 패키지 기능 설치
+   필요한 패키지를 설치하는 이유 : js 개발자가 만든 기능이 아닌, js를 활용하여 외부 회사나, 개발자가 만든 기능을 가져와서 사용
+   사용 방법 : 코딩을 하는 개별 컴퓨터에 nodeJS 설치 후
+              npm i 필요한 패키지 이름이나
+              npm install 필요한 패키지 이름을 활용해서 설치 가능
+              
+              설치한 패키지 삭제하는 방법
+              npm uninstall 필요한 패키지 이름을 활용해서 삭제 가능
+
+              npm install 필요한패키지1
+              npm install 필요한패키지2
+              npm install 필요한패키지3
+
+              npm install 필요한패키지1 필요한패키지2 필요한패키지3
+              npm i 필요한패키지1 필요한패키지2 필요한패키지3
+    </pre>
+    <h2>Node.js</h2>
+    <pre>
+javaScript를 웹 사이트(브라우저) 밖에서도 실행할 수 있게 해주는 런타임 환경
+기존에는 javaScript를 웹 브라우저에서만 사용할 수 있었음
+Node.js는 컴퓨터에서 인터넷을 통하지 않아도 직접 실행 가능
+
+2008-2009 년 당시 javaScript는 웹 브라우저에만 사용이 됐었음
+    백엔드 개발 언어는  JAVA, PHP, Python 과 같은 언어만 가능
+
+    라이언 달 : 파일 업로드 진행률을 보여주는 웹 앱 만드는 도중
+               서버에 파일 업로드 상태를 실시간으로 확인 어려움
+               javaScript => 이벤트(행동) 기반이고, 비동기 처리 원활함
+                             백엔드에서 쓸 수 있다면?!
+
+nodeJs 로 인하여 채팅, 게임 개발이 용이해짐
+
+ex) 서버 만들기, 파일 다루기, 데이터베이스 연결 등 다양한 작업 가능
+    </pre>
+
+    <h2>npm</h2>
+    <pre>
+Node Pacjage Manager 의 줄임말
+NodeJs 용 패키지(라이브러리) 관리 도구
+다른 개발자들이 만든 유용한 코드 기능들을 쉽게 설치하고 관리할 수 있게 해줌
+https://www.npmjs.com/
+    </pre>
+    <h3>NodeJs & npm 으로 패키지(라이브러리) 도구를 설치하고 실행하는 방법</h3>
+    <pre>
+// Node.js로 javaScript 파일 실행
+node 파일이름.js // javaScript 파일이 실행됨
+
+// npm으로 패키지 설치
+npm install express // 웹 서버를 만드는 패키지
+npm install acios  // HTTP 요청 보내는 패키지 ajax 동일한 기능을 수행
+npm install sheerio // HTML 변환하는 패키지
+
+위와 같은 형식으로 설치하고 사용할 수 있음!
+
+크롤링, 스크래핑을 하기 위해서 필요
+    </pre>
+    <script src="../js/29_crawling_scraping.js"></script>
+  </body>
+</html>
